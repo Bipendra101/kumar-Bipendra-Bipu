@@ -8,10 +8,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.android.AndroidDriver;
 
-public class LaunchApp1 {
+public class AppInstall {
 	public static void main(String[] args) throws MalformedURLException {
 		
-		 DesiredCapabilities dc = new DesiredCapabilities();
+		DesiredCapabilities dc = new DesiredCapabilities();
 		  // Common DC (Android or IOS)
 		  dc.setCapability("deviceName", "Redmi Note 8 Pro");  
 		  dc.setCapability("automationName", "appium");
@@ -19,16 +19,26 @@ public class LaunchApp1 {
 		  dc.setCapability("platformVersion", "10.0");
 		  dc.setCapability("UDID", "bqq8kfnbwov8onk7");
 		  //DC for Android 
-		  dc.setCapability("appPackage", "com.android.bluetooth");
-		  dc.setCapability("appActivity", "opp.MiuiBluetoothOppTransferHistory");
+		 // dc.setCapability("appPackage", "io.appium.android.apis");
+		 // dc.setCapability("appActivity", ".ApiDemos");
+		  
+		  
+		  // to install app
+		  dc.setCapability("App", "E:\\ApiDemos-debug");
 		  
 		  // Appium Server Port No.
 		  URL url = new URL("http://localhost:4723/wd/hub");
 		  
-		AndroidDriver driver= new AndroidDriver(url, dc);
+		  AndroidDriver driver= new AndroidDriver(url, dc);
 
 		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		  
+		  System.out.println("App Status="+driver.isAppInstalled("io.appium.android.apis"));//true
+		  
+		  //Unistall app
+		 driver.removeApp("io.appium.android.apis");
+		 System.out.println("App Status="+driver.isAppInstalled("io.appium.android.apis"));//False
+		  
 	}
-	
 
 }

@@ -23,7 +23,7 @@ public class LaunchAppApiDemo {
 		  dc.setCapability("appPackage", "io.appium.android.apis");
 		  dc.setCapability("appActivity", ".ApiDemos");
 		  
-		  // Appium Server Port No.
+		  // Appium Server Port No. 
 		  URL url = new URL("http://localhost:4723/wd/hub");
 		  
 		AndroidDriver driver= new AndroidDriver(url, dc);

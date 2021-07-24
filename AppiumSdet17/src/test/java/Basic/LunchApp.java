@@ -26,6 +26,7 @@ public class LunchApp {
 		  // Appium Server Port No.
 		  URL url = new URL("http://localhost:4723/wd/hub");
 		  
+		  
 		AndroidDriver driver= new AndroidDriver(url, dc);
 
 		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
